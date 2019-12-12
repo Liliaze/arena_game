@@ -12,6 +12,14 @@ h2 {
 h4, h3 {
  margin :0;
 }
+#scoreP1, #scoreP1 + h4 {
+ color: blue;
+}
+
+#scoreP2, #scoreP2 + h4 {
+ color: darkolivegreen;
+}
+
 #players {
  display: flex;
  flex-direction: row;
