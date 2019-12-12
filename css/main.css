@@ -1,0 +1,31 @@
+h1 {
+ color: red;
+ text-align: center;
+}
+
+h2 {
+ color: orangered;
+ text-align: center;
+ margin: 0 0 20px 0;
+}
+
+h4, h3 {
+ margin :0;
+}
+#players {
+ display: flex;
+ flex-direction: row;
+ align-content: flex-start;
+ justify-content: space-around ;
+ text-align: center; 
+}
+
+#boardGame {
+ display: flex;
+ flex-direction: row;
+ justify-content: center ;
+}
+
+img {
+  width: calc(72vh / 15);
+}
