@@ -43,9 +43,13 @@ function newBoardGame() {
    }
   }
  }
+
+
  $('img').each(function () {
   if ($(this).hasClass("ground")) {
-   $(this).replaceWith($('<img>').attr('src', 'image/sword.jpg').addClass('sword'));
+   $(this).click(function () {
+    $(this).replaceWith($('<img>').attr('src', 'image/sword.jpg').addClass('sword'));
+   });
   }
  });
 
