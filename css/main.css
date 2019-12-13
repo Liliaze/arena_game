@@ -35,5 +35,5 @@ h4, h3 {
 }
 
 img {
-  width: calc(72vh / 12);
+  width: calc(72vh / 12); /* divide by the boardGameSize */
 }

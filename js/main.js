@@ -2,6 +2,7 @@
 
 var boardGame = [];
 var boardGameElement = null;
+const boardGameSize = 12; //if you change this data, think to change width of td in main.css
 var weapons = [];
 var players = [];
 
@@ -10,7 +11,7 @@ $(document).ready(function () {
  initTitleContent();
  initWeapons();
  initPlayers();
- newBoardGame();
+ newGame();
 });
 
 
@@ -47,25 +48,18 @@ function createPlayer(life, name, imageSrc) {
  }
 }
 
-function newBoardGame() {
+function addNewBoardGame() {
+ //boardGameSize = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
 
- const maxNumber = 20;
- const minNumber = 10;
- boardGame = [];
- boardGameSize = 12; //Math.floor(Math.random() * (maxNumber + 1) + minNumber);
- console.log('boardGameSize = ' + boardGameSize);
  numberOfBlock = boardGameSize * boardGameSize * 0.1 * 2;
  $('<table>').appendTo('#boardGame');
  for (let i = 0; i < boardGameSize; i++) {
   $('<tr>').attr('id', i.toString()).appendTo('table');
-  console.log('i = ' + i);
-
   for (let j = 0; j < boardGameSize; j++) {
-   console.log('j = ' + j);
 
    let trId = i + '_' + j;
    $('<td>').attr('id', trId.toString()).appendTo('#' + i.toString());
-   let block = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
+   let block = Math.floor(Math.random() * (boardGameSize + 1) + 1);
    if (block % 3 == 0 && block % 2 == 0 && numberOfBlock-- >= 0) {
     $('<img>').attr('src', 'image/bloc.jpg').attr('row', i).attr('column', j).addClass('block').appendTo('#' + trId);
    }
@@ -74,6 +68,9 @@ function newBoardGame() {
    }
   }
  }
+}
+
+function addNewWeapons() {
 
  for (let i = 0; i < weapons.length; i++) {
   const randomPositionRow = Math.floor(Math.random() * boardGameSize).toString();
@@ -91,6 +88,9 @@ function newBoardGame() {
   });
  }
 
+}
+
+function addNewPlayers() {
  for (let i = 0; i < players.length; i++) {
   const randomPositionRow = Math.floor(Math.random() * boardGameSize).toString();
   const randomPositionColumn = Math.floor(Math.random() * boardGameSize).toString();
@@ -106,4 +106,11 @@ function newBoardGame() {
    }
   });
  };
+}
+
+function newGame() {
+ console.log('boardGameSize = ' + boardGameSize);
+ addNewBoardGame();
+ addNewWeapons();
+ addNewPlayers();
 }
